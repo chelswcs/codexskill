@@ -1,0 +1,16 @@
+interface:
+  display_name: "Figma DS Audit"
+  short_description: "Audit and normalize a Figma design system"
+  brand_color: "#0A0A0A"
+  default_prompt: "Use $figma-audit-design-system to inspect a Figma design system page, find mismatches in category titles, spec titles, canvas structure, and naming, then fix them."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "figma"
+      description: "Figma MCP server"
+      transport: "streamable_http"
+      url: "https://api.githubcopilot.com/mcp/"
+
+policy:
+  allow_implicit_invocation: true
