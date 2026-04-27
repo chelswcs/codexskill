@@ -1,36 +1,53 @@
 # Figma Design System Skills
 
-Two Codex skills for Figma design-system work:
+Reusable Codex skills for reviewing, extracting, and normalizing Figma design systems.
+
+This repo currently includes two skills:
 
 - `figma-audit-design-system`
 - `figma-extract-design-system`
 
-These skills are designed for teams working in Figma who want stricter review and extraction workflows for design systems.
+They are intended for teams that want more structured Figma workflows than a generic "make components from this file" prompt.
 
-## Included Skills
+## What These Skills Do
 
 ### `figma-audit-design-system`
 
-Use this skill when a design system already exists and needs structure or naming cleanup.
+Use this when a design system already exists, but its structure needs review or cleanup.
 
-Typical use cases:
+Good fit for:
 
-- audit category grouping
-- normalize spec layout
-- fix title and canvas mismatches
-- clean up duplicate naming
-- check whether screens are actually consuming the design system
+- category grouping audits
+- spec layout normalization
+- title and canvas mismatch cleanup
+- duplicate naming cleanup
+- semantic layer naming cleanup
+- checking whether product screens are actually using the design system
 
 ### `figma-extract-design-system`
 
-Use this skill when source screens exist but a reusable design system has not been properly extracted yet.
+Use this when source screens exist but the design system has not been cleanly extracted yet.
 
-Typical use cases:
+Good fit for:
 
-- review source screens before componentization
-- classify what should become foundations, icons, primitives, and composed components
-- propose `To Add / To Modify / Do Not Extract`
-- extract and rebind the resulting design system
+- reviewing source screens before componentization
+- separating foundations, icons, primitive components, and composed components
+- deciding what should not be extracted
+- producing a `To Add / To Modify / Do Not Extract` review
+- extracting the resulting design system in the right order
+- rebinding source screens after extraction
+
+## Skill Philosophy
+
+These skills deliberately avoid "componentize everything" behavior.
+
+They bias toward:
+
+- understanding structure first
+- preserving reusable boundaries
+- excluding page-only layout and decoration
+- keeping naming and spec presentation coherent
+- rebinding screens after extraction instead of stopping at component creation
 
 ## Repo Structure
 
@@ -48,14 +65,21 @@ Typical use cases:
 
 ## Install
 
-Clone this repo, then copy one or both skills into your local Codex skills directory:
+Clone the repo:
+
+```bash
+git clone https://github.com/chelswcs/codexskill.git
+cd codexskill
+```
+
+Copy one or both skills into your local Codex skills directory:
 
 ```bash
 cp -R figma-audit-design-system ~/.codex/skills/
 cp -R figma-extract-design-system ~/.codex/skills/
 ```
 
-If the directories already exist, replace them intentionally:
+If you are replacing existing local copies, remove the old ones first:
 
 ```bash
 rm -rf ~/.codex/skills/figma-audit-design-system
@@ -69,9 +93,18 @@ cp -R figma-extract-design-system ~/.codex/skills/
 - Codex with local skill loading enabled
 - Figma MCP configured and available to Codex
 
-## Notes
+## Suggested Usage
 
-- Both skills assume a Figma-capable environment.
-- `figma-extract-design-system` is extraction-first and review-first.
-- `figma-audit-design-system` is audit-first and normalization-first.
-- No license file has been added yet. Choose one before publishing publicly if you want explicit reuse terms.
+Use `figma-extract-design-system` when starting from real product screens.
+
+Use `figma-audit-design-system` after a library already exists and needs cleanup, validation, or normalization.
+
+In practice, a common workflow is:
+
+1. extract from source screens
+2. rebind the screens
+3. audit the resulting library
+
+## License
+
+MIT
