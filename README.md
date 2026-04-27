@@ -105,6 +105,47 @@ In practice, a common workflow is:
 2. rebind the screens
 3. audit the resulting library
 
+## Usage Examples
+
+### Example: extract from product screens
+
+Use this when you already have one or more Figma screens and want to turn them into a reusable design system.
+
+```text
+Use $figma-extract-design-system on this Figma file.
+Review the workout, dashboard, and profile screens first.
+Identify foundations, icons, primitive components, and composed components.
+Before creating anything, give me:
+- To Add
+- To Modify
+- Do Not Extract
+Then extract the system in the correct order and rebind the source screens.
+```
+
+### Example: audit an existing library
+
+Use this when the design system already exists but its structure or naming quality is inconsistent.
+
+```text
+Use $figma-audit-design-system on this Figma design system page.
+Inspect category titles, spec titles, canvas structure, and component naming.
+Find duplicate labels, mismatched titles, and generic layer names.
+Apply the fixes in small batches, then re-audit the updated sections.
+```
+
+### Example: check if screens are actually using the library
+
+This is useful when a team has components in the file, but some screens may still contain raw frames instead of bound instances.
+
+```text
+Use $figma-audit-design-system to inspect these product screens and tell me which areas are still raw layout instead of design-system instances.
+Group findings by:
+- raw screen usage issue
+- instance/title mismatch
+- category mismatch
+Then fix the obvious rebinding problems.
+```
+
 ## License
 
 MIT
