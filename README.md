@@ -47,7 +47,33 @@ They bias toward:
 - preserving reusable boundaries
 - excluding page-only layout and decoration
 - keeping naming and spec presentation coherent
+- recording source evidence, confidence levels, and unresolved decisions
 - rebinding screens after extraction instead of stopping at component creation
+- validating rebinding with before/after screenshots before accepting swaps
+
+## Expected Outputs
+
+Each skill should leave a short handoff trail, not only make Figma changes.
+
+For extraction work, expect:
+
+- reviewed scope and source frames
+- reusable patterns found
+- `To Add / To Modify / Do Not Extract`
+- source trace and confidence rating for important component decisions
+- implementation order
+- before/after screenshot validation for rebinding
+- rebinding and validation summary
+- unresolved risks or follow-up pass
+
+For audit work, expect:
+
+- audited scope
+- mismatch list grouped by issue type with confidence ratings
+- fixes applied in small batches
+- re-audit result, including any unpassed items and reasons
+- remaining raw screen usage or naming debt
+- next recommended pass
 
 ## Repo Structure
 
@@ -68,8 +94,8 @@ They bias toward:
 Clone the repo:
 
 ```bash
-git clone https://github.com/chelswcs/codexskill.git
-cd codexskill
+git clone https://github.com/chelswcs/figma-ds-workflows.git
+cd figma-ds-workflows
 ```
 
 Copy one or both skills into your local Codex skills directory:
