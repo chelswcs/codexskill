@@ -18,6 +18,8 @@ Project rules established in this file:
 
 ## Typical categories
 
+These categories come from one example project. Treat them as examples only, and follow the target file's actual conventions when they differ.
+
 - Navigation
   - `Navigation / Tab Bar`
   - `Navigation / Action Bar`

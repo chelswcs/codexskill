@@ -25,6 +25,8 @@ Use it for:
 Use these references during the audit:
 - [references/audit-checklist.md](references/audit-checklist.md)
 - [references/common-fixes.md](references/common-fixes.md)
+- [references/audit-report-template.md](references/audit-report-template.md)
+- [references/confidence-levels.md](references/confidence-levels.md)
 
 ## Primary audit targets
 
@@ -72,6 +74,7 @@ Review these in order:
 4. Report the mismatches in a short list.
 5. Apply fixes in small batches.
 6. Re-audit after each batch.
+7. End with a handoff report that records fixes, remaining issues, and the next recommended pass.
 
 ## Required mismatch categories
 
@@ -84,14 +87,35 @@ When reporting findings, classify them as:
 - semantic layer naming issue
 - raw screen usage issue
 
+Each finding should include:
+- source page / frame / group
+- expected structure
+- actual mismatch
+- proposed fix
+- confidence: high, medium, or low
+
+Use [references/confidence-levels.md](references/confidence-levels.md) to assign confidence consistently.
+
 ## Fix rules
 
-- Do not rename blindly.
+- Do not rename blindly: renaming is only allowed when there is a corresponding recorded finding with a confidence rating.
 - Fix visible content and layer names together.
 - If a title is correct but the instance name is wrong, fix the instance name.
 - If the instance is correct but the visible title is wrong, fix the visible title.
 - If category content and grouping disagree, fix the grouping first, then the title.
 - Keep spec layout consistent with the established library pattern.
+
+## Required final output after audit
+
+After the audit or repair pass, produce:
+
+- audited scope
+- mismatch summary by category
+- fixes applied
+- items intentionally left unchanged
+- re-audit result, including any unpassed items and reasons
+- remaining raw screen usage or naming debt
+- recommended next pass
 
 ## Validation checklist
 

@@ -18,6 +18,10 @@ Use this order unless the file already has a stable system that only needs minor
 8. Extract primitive components
 9. Extract composed components
 10. Rebind the original screens
+    - Take a `get_screenshot` capture of each source screen before rebinding
+    - Take a second `get_screenshot` capture of each source screen after rebinding
+    - Visually compare size, spacing, and color between the before and after captures
+    - If size, spacing, or color drifts, report the drift and stop instead of forcing the swap
 11. Normalize spec layout, titles, category groups, and semantic layer naming
 
 ## Operating rules
@@ -26,5 +30,6 @@ Use this order unless the file already has a stable system that only needs minor
 - Do not group by page when function-based grouping is possible
 - Do not leave raw vectors embedded when an icon should be standalone
 - Do not stop after building components; rebind the source screens
+- Do not force a rebind when screenshot validation shows size, spacing, or color drift
 - Do not normalize spec layout until the component structure is stable
 

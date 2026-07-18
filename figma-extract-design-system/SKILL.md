@@ -18,6 +18,7 @@ This skill covers the full extraction workflow:
 - review source screens
 - classify reusable boundaries
 - propose `To Add / To Modify / Do Not Extract`
+- record source evidence for important decisions
 - build or extend foundations
 - extract icons, primitive components, and composed components
 - rebind the source screens
@@ -40,6 +41,14 @@ This skill covers the full extraction workflow:
    - composed components
    - local-only layout
    - decoration / divider / container shapes
+
+   For every important candidate, keep a short source trace:
+   - source page / frame / node
+   - observed repeated pattern
+   - proposed design-system role
+   - confidence: high, medium, or low
+
+   Use [references/confidence-levels.md](references/confidence-levels.md) to assign confidence consistently.
 
 3. Exclude what should not be extracted.
    Do not extract:
@@ -83,7 +92,8 @@ This skill covers the full extraction workflow:
    - workout header
 
 9. Rebind the design system back to the original screens.
-   Validate that the screens can consume the new components and tokens without visual drift.
+   Take a `get_screenshot` capture of each source screen before and after rebinding, then visually compare size, spacing, and color.
+   If size, spacing, or color drifts, report the drift and stop instead of forcing the swap.
 
 10. Normalize the library structure at the end.
    Fix:
@@ -97,6 +107,7 @@ Use these references during the workflow:
 - [references/workflow.md](references/workflow.md)
 - [references/review-template.md](references/review-template.md)
 - [references/library-rules.md](references/library-rules.md)
+- [references/confidence-levels.md](references/confidence-levels.md)
 
 ## Required review output before creation
 
@@ -109,6 +120,20 @@ Before any write, produce:
 - `To Modify`
 - `Do Not Extract`
 - proposed implementation order
+
+Each item in `To Add` and `To Modify` should include enough source evidence for another agent to find the original screen or node later.
+
+## Required final output after extraction
+
+After the write and rebind pass, produce:
+
+- scope completed
+- components, foundations, and icons created or modified
+- source screens rebound
+- raw areas that still remain
+- validation result
+- unresolved risks or follow-up decisions
+- recommended next pass
 
 ## Library rules to preserve
 

@@ -6,6 +6,8 @@ Use this structure before making substantial design-system writes.
 
 - File / page / node under review
 - Screens included in this pass
+- Existing library areas that should be preserved
+- Known gaps or unavailable nodes
 
 ## Reusable patterns found
 
@@ -13,18 +15,34 @@ Use this structure before making substantial design-system writes.
 - Icons:
 - Primitive components:
 - Composed components:
+- Local-only layout:
+- Decoration / divider / container shapes:
+
+## Source Trace
+
+Use this table for important extraction decisions.
+
+| Candidate | Source page / frame / node | Observed pattern | Proposed role | Confidence |
+|---|---|---|---|---|
+|  |  |  |  |  |
 
 ## To Add
 
-- New design system elements that do not exist yet
+| Item | Type | Source | Reason | Depends on | Order |
+|---|---|---|---|---|---|
+|  | foundation / icon / primitive / composed |  |  |  |  |
 
 ## To Modify
 
-- Existing design system elements that need extension or cleanup
+| Item | Current issue | Source | Proposed change | Risk |
+|---|---|---|---|---|
+|  |  |  |  |  |
 
 ## Do Not Extract
 
-- Shapes, wrappers, dividers, or page-only layout that should remain local
+| Item | Source | Why local-only | Where it should remain |
+|---|---|---|---|
+|  |  |  |  |
 
 ## Proposed implementation order
 
@@ -36,4 +54,14 @@ Use this structure before making substantial design-system writes.
 
 - Which source screens will be rebound
 - What should be verified after the write pass
+- Which raw areas may remain acceptable
+- Which areas require a follow-up audit
 
+## Final handoff summary
+
+- Completed:
+- Modified:
+- Rebound screens:
+- Remaining raw areas:
+- Validation result:
+- Follow-up:
