@@ -105,6 +105,16 @@ Use [references/confidence-levels.md](references/confidence-levels.md) to assign
 - If category content and grouping disagree, fix the grouping first, then the title.
 - Keep spec layout consistent with the established library pattern.
 
+## Decision prompts
+
+When a decision needs user input, ask with fixed options instead of open-ended questions:
+
+- Before applying a fix batch: `apply this batch / adjust first / skip this batch`
+- A finding could be fixed two ways (for example rename the title vs rename the instance): `fix the title / fix the instance / leave and record`
+- A low-confidence finding: `confirm and fix / leave and record`
+
+Record the chosen option next to the affected finding in the report file.
+
 ## Required final output after audit
 
 After the audit or repair pass, produce:
@@ -116,6 +126,8 @@ After the audit or repair pass, produce:
 - re-audit result, including any unpassed items and reasons
 - remaining raw screen usage or naming debt
 - recommended next pass
+
+Write this report to a markdown file in the working directory (for example `reports/ds-audit-report-YYYYMMDD.md`), not only into the chat reply. Only claim what was actually fixed: every claim must be checkable against the Figma file.
 
 ## Validation checklist
 

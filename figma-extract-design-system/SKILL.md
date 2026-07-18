@@ -123,6 +123,18 @@ Before any write, produce:
 
 Each item in `To Add` and `To Modify` should include enough source evidence for another agent to find the original screen or node later.
 
+Write this review to a markdown file in the working directory (for example `reports/ds-extraction-review-YYYYMMDD.md`), not only into the chat reply, so the review survives the session and can be handed to another agent.
+
+## Decision prompts
+
+When a decision needs user input, ask with fixed options instead of open-ended questions:
+
+- Review list confirmation: `proceed as listed / adjust items first / stop`
+- A candidate overlaps an existing component: `merge / make variant / keep distinct / do not extract`
+- Contradictory pattern across screens: `use version A / use version B / keep both raw and ask later`
+
+Record the chosen option next to the affected item in the review file.
+
 ## Required final output after extraction
 
 After the write and rebind pass, produce:
@@ -134,6 +146,8 @@ After the write and rebind pass, produce:
 - validation result
 - unresolved risks or follow-up decisions
 - recommended next pass
+
+Write this handoff to a markdown file in the working directory (for example `reports/ds-extraction-handoff-YYYYMMDD.md`), not only into the chat reply. Only claim what was actually created: every item in the handoff must be checkable against the Figma file, and anything planned but not built must be listed as not built.
 
 ## Library rules to preserve
 
