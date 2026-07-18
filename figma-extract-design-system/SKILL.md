@@ -76,6 +76,8 @@ This skill covers the full extraction workflow:
 
    Before finalizing text styles, run a consolidation review: cluster styles that are nearly identical (same size but different line height, same face but different case such as all caps). For each cluster, ask the user with fixed options: `merge into one style / keep distinct with a documented reason`. Do not silently create near-duplicate styles.
 
+   When presenting a consolidation cluster to the user, show each style IN CONTEXT: a screenshot crop of an actual source-screen location where that text appears, not only the Foundations specimen row. A specimen alone does not tell the user where the style is used, which is what the merge decision depends on.
+
 6. Extract icons before larger components.
    Make icons standalone components first, then let higher-level components consume them.
 
