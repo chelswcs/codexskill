@@ -16,6 +16,14 @@ Project rules established in this file:
 - Avoid duplicate visible naming across categories, specs, and instances
 - Layer naming must be semantic, not tool-default
 
+## Where component masters live
+
+Place the master component or component set directly inside its spec `Canvas` whenever possible, so the spec is the single home of the component. Do not create a separate dump section (such as `_Library Assets`) that holds masters while specs show only instances — it splits the source of truth and confuses readers. If a holding area is genuinely unavoidable, it must carry a visible note explaining what it is and why it exists.
+
+## Layout discipline
+
+Every structural frame on the `Foundations` and `Components` pages must use auto layout: sections, spec frames, `Title`, `Canvas`, and documentation blocks. Do not leave absolutely-positioned scatter, overlapping frames, or hand-nudged spacing. Spacing between specs and between categories must come from consistent auto-layout gaps and padding, not manual positioning.
+
 ## Typical categories
 
 These categories come from one example project. Treat them as examples only, and follow the target file's actual conventions when they differ.

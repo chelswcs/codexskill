@@ -72,6 +72,10 @@ This skill covers the full extraction workflow:
    - radius
    - other project token groups if needed
 
+   Every color and text style documented on the Foundations page must carry a short usage note saying where it is meant to be used (for example `body text on light surfaces`, `large numeric display`), not only the raw value.
+
+   Before finalizing text styles, run a consolidation review: cluster styles that are nearly identical (same size but different line height, same face but different case such as all caps). For each cluster, ask the user with fixed options: `merge into one style / keep distinct with a documented reason`. Do not silently create near-duplicate styles.
+
 6. Extract icons before larger components.
    Make icons standalone components first, then let higher-level components consume them.
 
@@ -92,8 +96,10 @@ This skill covers the full extraction workflow:
    - workout header
 
 9. Rebind the design system back to the original screens.
+   Rebinding is NOT optional and NOT a follow-up: the extraction is incomplete until every source screen is either rebound or explicitly rolled back with a recorded reason. Never end the pass with screens silently left raw.
    Take a `get_screenshot` capture of each source screen before and after rebinding, then visually compare size, spacing, and color.
    If size, spacing, or color drifts, report the drift and stop instead of forcing the swap.
+   The final handoff must contain a per-screen rebind status table: `rebound / rolled back (reason) / not attempted (reason)`.
 
 10. Normalize the library structure at the end.
    Fix:

@@ -138,3 +138,6 @@ After an audit pass, confirm:
 - `Title` is above `Canvas`
 - no duplicate visible spec titles remain
 - no generic layer names remain in the audited components
+- component masters live inside their spec `Canvas`; no unexplained holding sections such as `_Library Assets`
+- structural frames on library pages use auto layout, with no absolutely-positioned scatter or manual spacing
+- documented colors and text styles carry usage notes, and no undocumented near-duplicate text styles remain
