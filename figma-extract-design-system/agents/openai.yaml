@@ -2,7 +2,7 @@ interface:
   display_name: "Figma DS Extraction"
   short_description: "Extract a design system from source screens"
   brand_color: "#0A0A0A"
-  default_prompt: "Use $figma-extract-design-system to review Figma source screens, propose what to add or modify, then extract the design system in the correct order."
+  default_prompt: "Use $figma-extract-design-system to review Figma source screens, produce To Add / To Modify / Do Not Extract with source evidence, then extract, rebind, and summarize validation."
 
 dependencies:
   tools:
@@ -10,7 +10,7 @@ dependencies:
       value: "figma"
       description: "Figma MCP server"
       transport: "streamable_http"
-      url: "https://api.githubcopilot.com/mcp/"
+      url: "https://mcp.figma.com/mcp"
 
 policy:
   allow_implicit_invocation: true
