@@ -22,7 +22,12 @@ The color/text/effect styles documented on the Foundations page must be the SAME
 
 ## Typography documentation order and taxonomy
 
-Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are uppercase captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
+Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
+
+Two hard rules learned from user review:
+
+- Never encode uppercase in a text style's `textCase`. Uppercase is typed directly into the characters; styles keep `textCase: ORIGINAL`. A textCase-based style silently detaches when nodes override text properties, and it hides the real content.
+- Every documented style must be bound to at least one VISIBLE element on the actual screens or component masters. Usage that exists only inside hidden layers or collapsed states does not justify a documented style — remove the style or surface the usage.
 
 ## Where component masters live
 
