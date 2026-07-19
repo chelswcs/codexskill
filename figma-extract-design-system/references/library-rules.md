@@ -22,7 +22,7 @@ The color/text/effect styles documented on the Foundations page must be the SAME
 
 ## Typography documentation order and taxonomy
 
-Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
+Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Apply the SAME order to the style list itself with `figma.moveLocalTextStyleAfter` (styles can only be reordered within their folder; rebuild by moving each style to the folder front in reverse order — chained after-previous moves can leave stragglers). Documentation order and style-panel order must match. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
 
 Two hard rules learned from user review:
 
