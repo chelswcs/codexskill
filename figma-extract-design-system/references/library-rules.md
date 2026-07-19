@@ -20,6 +20,10 @@ Project rules established in this file:
 
 The color/text/effect styles documented on the Foundations page must be the SAME style objects that component masters actually consume. Never create a documentation-only style set in parallel with the styles applied in components — renames and merges on the documented set silently miss production text. Before documenting, inventory what is actually applied; after documenting, verify by node reference that specimens and masters point at identical style IDs. Keep one consistent line-height convention across the whole type scale unless a documented exception exists.
 
+## Typography documentation order and taxonomy
+
+Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are uppercase captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
+
 ## Where component masters live
 
 Place the master component or component set directly inside its spec `Canvas` whenever possible, so the spec is the single home of the component. Do not create a separate dump section (such as `_Library Assets`) that holds masters while specs show only instances — it splits the source of truth and confuses readers. If a holding area is genuinely unavoidable, it must carry a visible note explaining what it is and why it exists.
