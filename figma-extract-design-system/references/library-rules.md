@@ -20,9 +20,17 @@ Project rules established in this file:
 
 The color/text/effect styles documented on the Foundations page must be the SAME style objects that component masters actually consume. Never create a documentation-only style set in parallel with the styles applied in components — renames and merges on the documented set silently miss production text. Before documenting, inventory what is actually applied; after documenting, verify by node reference that specimens and masters point at identical style IDs. Keep one consistent line-height convention across the whole type scale unless a documented exception exists.
 
-## Typography documentation order and taxonomy
+## Typography taxonomy: organize by ROLE, not font family
 
-Sort the typography documentation by font family group first, then font size descending, then weight descending (Bold > Semi Bold > Medium > Regular) within the same size. Apply the SAME order to the style list itself with `figma.moveLocalTextStyleAfter` (styles can only be reordered within their folder; rebuild by moving each style to the folder front in reverse order — chained after-previous moves can leave stragglers). Documentation order and style-panel order must match. Keep category semantics sharp and stated at the start of each usage note: `Label` styles are captions/annotations, `Numeric` styles are data values that are never uppercased, `Body` is running text, and policy exceptions are tagged `EXCEPTION`. A style whose real usage is data values must be named Numeric even if it started as a Label. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
+Users pick a text style by what they are typesetting, not by which font the policy assigns — so the style path names the ROLE and the font family stays out of it. The family is enforced by the font policy note and audits, not by navigation. Rules:
+
+1. Role folders, in display order: `Heading`, `Title`, `Body`, `Numeric`, `Nav`, `Action`, `Input`, `Label` (adapt roles to the project, largest/most prominent first).
+2. `Label` is reserved for annotations BELOW 14px. Styles at 14px and above are named by usage context: heading, title, body, display, numeric, and so on.
+3. Structural policy exceptions (navigation, inputs, buttons) get their OWN role folder with an `EXCEPTION` tag in the usage note — never bend another role's rules to house them.
+4. `Numeric` styles are data values and are never uppercased; a style whose real usage is data values must be classified Numeric even if it started elsewhere.
+5. Every usage note starts with its role classification prefix (e.g. `HEADING —`, `DATA VALUE —`, `NAV (EXCEPTION: …) —`).
+6. Within each role folder sort by font size descending, then weight descending (Bold > Semi Bold > Medium > Regular). Apply the SAME order to the style panel: folders via `figma.moveLocalTextFolderAfter`, styles via the reverse move-to-front technique (`figma.moveLocalTextStyleAfter` with reference null, iterating the desired order in reverse — chained after-previous moves can leave stragglers). Documentation order and panel order must match.
+7. Figma SECTION nodes do not auto-resize — after adding specimens, resize the section to fit its documentation frame.
 
 Two hard rules learned from user review:
 
