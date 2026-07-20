@@ -1,1 +1,3 @@
 .DS_Store
+*-output.log
+.stage3-test-output.log
