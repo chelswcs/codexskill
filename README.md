@@ -81,13 +81,25 @@ For audit work, expect:
 .
 ├── figma-audit-design-system/
 │   ├── SKILL.md
-│   ├── agents/
+│   ├── agents/openai.yaml
 │   └── references/
+│       ├── audit-checklist.md
+│       ├── audit-report-template.md
+│       ├── common-fixes.md
+│       └── confidence-levels.md
 └── figma-extract-design-system/
     ├── SKILL.md
-    ├── agents/
+    ├── agents/openai.yaml
     └── references/
+        ├── confidence-levels.md
+        ├── library-rules.md
+        ├── review-template.md
+        └── workflow.md
 ```
+
+`confidence-levels.md` is duplicated in both skills on purpose: skills are installed
+independently into `~/.codex/skills/`, so a shared cross-folder reference would break
+after install. Keep the two copies in sync.
 
 ## Install
 
@@ -171,6 +183,31 @@ Group findings by:
 - category mismatch
 Then fix the obvious rebinding problems.
 ```
+
+## Recent Updates
+
+These skills were hardened against a full extract → rebind → audit run on a real
+product file. Changes from that pass:
+
+- **Fixed the Figma MCP endpoint** in both `agents/openai.yaml` — it previously
+  pointed at an unrelated MCP server, so the skills could not reach Figma at all.
+- **Confidence levels with an independence rule** (`confidence-levels.md`): state
+  copies, duplicated frames, and repeated rows count as one occurrence, not several,
+  and contradictory patterns are capped and surfaced instead of silently resolved.
+- **Rebinding is mandatory, not optional.** Every source screen must end rebound or
+  explicitly rolled back with a reason, validated by before/after screenshots — the
+  extraction is not "done" while screens are left raw.
+- **Handoffs land as files.** Review and handoff reports are written to `reports/`,
+  and may only claim what is checkable against the Figma file.
+- **Role-based typography taxonomy.** Text styles are organized by role
+  (`Heading / Title / Body / Numeric / Nav / Action / Input / Label`), not by font
+  family; `Label` is reserved for sub-14px annotations; structural exceptions
+  (navigation, inputs, buttons) get their own role folder tagged `EXCEPTION`.
+- **Uppercase is typed into the characters**, never encoded in a style's `textCase`
+  (which silently detaches on override and hides the real content).
+- **Single source of truth for styles.** Documented styles must be the same objects
+  components actually consume, and every documented style must map to at least one
+  visible element.
 
 ## License
 
