@@ -14,6 +14,8 @@ This skill requires a Figma write-enabled session for any repair pass.
 Before applying fixes, confirm that `mcp__figma__use_figma` is available in the current session.
 If `use_figma` is not available, the skill may still perform a read-only audit, but it must stop before any Figma write action and tell the user that a write-enabled session is required.
 
+Before the first fix that writes to the file, remind the user to save a named version in Figma's version history as a restore point, and wait for them to confirm. The plugin API cannot save version history, so the user must do it by hand: File → Save to version history (Cmd/Ctrl+Option+S). A read-only audit needs no restore point; the reminder applies only before write actions.
+
 Use it for:
 - category grouping review
 - spec layout normalization

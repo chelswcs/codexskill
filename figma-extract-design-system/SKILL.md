@@ -14,6 +14,8 @@ This skill requires a Figma write-enabled session.
 Before any write step, confirm that `mcp__figma__use_figma` is available in the current session.
 If `use_figma` is not available, stop at analysis and review only. Do not pretend write steps can proceed. Restart in a Figma write-enabled session first.
 
+Before the first write to an existing file, remind the user to save a named version in Figma's version history as a restore point, and wait for them to confirm. The plugin API cannot save version history, so the user must do it by hand: File → Save to version history (Cmd/Ctrl+Option+S). Do not start mutating an existing file until they confirm the restore point is saved.
+
 This skill covers the full extraction workflow:
 - review source screens
 - classify reusable boundaries
