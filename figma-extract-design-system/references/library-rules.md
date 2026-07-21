@@ -45,6 +45,31 @@ Place the master component or component set directly inside its spec `Canvas` wh
 
 Every structural frame on the `Foundations` and `Components` pages must use auto layout: sections, spec frames, `Title`, `Canvas`, and documentation blocks. Do not leave absolutely-positioned scatter, overlapping frames, or hand-nudged spacing. Spacing between specs and between categories must come from consistent auto-layout gaps and padding, not manual positioning.
 
+## What belongs in the system vs stays in the component
+
+A design system is not a collection of every repeated value — it is a set of shared
+decisions meant to hold across screens and states and to keep evolving. Frequency
+only proves a value is worth *checking*, not that it must become a token.
+
+A pattern earns a place in the system when it:
+
+- has a stable, understandable meaning across different UI contexts,
+- can be safely changed centrally to affect all usages at once,
+- supports predictable variation (state, size, responsive, theme),
+- removes a repeated design/development decision, and
+- has a clear usage scope that is hard to misuse.
+
+If a value belongs to a specific brand, asset, illustration, or data content, keep it
+inside its component. Changing it would change the *identity of the content*, not the
+system semantics of the interface — e.g. Bitcoin orange or USDC blue are asset
+identity, not global UI roles, so they live in the Bitcoin/USDC components, not as
+global semantic color tokens.
+
+So a component can be systematized without exposing every internal property as a
+variable. Expose the controllable, swappable, extensible parts; encapsulate the
+identity-only details. This keeps the global token set small, semantically clear, and
+safe to keep extending.
+
 ## Persist visual before/after evidence
 
 Before/after screenshots (for rebinding) and in-context crops (for style/merge
