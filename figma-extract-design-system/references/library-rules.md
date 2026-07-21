@@ -45,6 +45,22 @@ Place the master component or component set directly inside its spec `Canvas` wh
 
 Every structural frame on the `Foundations` and `Components` pages must use auto layout: sections, spec frames, `Title`, `Canvas`, and documentation blocks. Do not leave absolutely-positioned scatter, overlapping frames, or hand-nudged spacing. Spacing between specs and between categories must come from consistent auto-layout gaps and padding, not manual positioning.
 
+## Persist visual before/after evidence
+
+Before/after screenshots (for rebinding) and in-context crops (for style/merge
+decisions) are the evidence a human relies on to approve a change — persist them, do
+not leave them as links.
+
+- Figma `get_screenshot` URLs are short-lived, and a "before" state cannot be
+  rebuilt once the file changes. Download every capture to a local PNG the moment it
+  is taken (e.g. `curl -L -o` into `reports/assets/<pass>-<nodeId>-before.png` /
+  `-after.png`), before doing the mutation.
+- Name files so a reviewer can pair them: include the pass name, node id, and
+  `before`/`after`.
+- This lets the reviewer assemble a side-by-side comparison after the run,
+  independent of which agent or terminal executed it. A terminal-only agent that can
+  only emit text still leaves usable image files behind.
+
 ## Typical categories
 
 These categories come from one example project. Treat them as examples only, and follow the target file's actual conventions when they differ.
